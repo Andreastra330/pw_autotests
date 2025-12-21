@@ -16,7 +16,16 @@ public class BrowserManager {
     // Конструктор запускает браузер и создаёт Page
     // c Видимым окном
     public BrowserManager() {
-        ArrayList<String> args = new ArrayList<>(List.of("--start-maximized"));
+        ArrayList<String> args = new ArrayList<>(List.of("--start-maximized",
+                "--no-sandbox",
+                "--disable-setuid-sandbox",
+                "--disable-dev-shm-usage",  // Ключевой флаг!
+                "--disable-gpu",
+                "--no-first-run",
+                "--disable-extensions",
+                "--disable-background-timer-throttling",
+                "--disable-renderer-backgrounding",
+                "--disable-backgrounding-occluded-windows"));
         playwright = Playwright.create();
         browser = playwright.chromium().launch(
                 new BrowserType.LaunchOptions()
