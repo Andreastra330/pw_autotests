@@ -23,6 +23,7 @@ public class BrowserManager {
                         .setHeadless(false)
                         //.setSlowMo(2000)
                         .setArgs(args)
+
         );
         context = browser.newContext(new Browser.NewContextOptions()
                 .setViewportSize(null)
