@@ -1,4 +1,4 @@
-package com.dellin.config;
+package com.myshowsME.config;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -24,6 +24,12 @@ public class ConfigReader {
     public static String getUrl() {
         return props.getProperty("base.url");
     }
+
+    public static String getRealLogin() {return props.getProperty("real.login");}
+    public static String getRealEmail() {return props.getProperty("real.email");}
+
+    public static String getRealPassword() {return props.getProperty("real.passsword");}
+
 
     public static String getRealTrackCode(){
         return props.getProperty("real.trackCode");

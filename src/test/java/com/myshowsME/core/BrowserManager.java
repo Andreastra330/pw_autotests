@@ -1,6 +1,9 @@
-package com.dellin.core;
+package com.myshowsME.core;
 
 import com.microsoft.playwright.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BrowserManager {
 
@@ -11,19 +14,21 @@ public class BrowserManager {
 
 
     // Конструктор запускает браузер и создаёт Page
+    // c Видимым окном
     public BrowserManager() {
+        ArrayList<String> args = new ArrayList<>(List.of("--start-maximized"));
         playwright = Playwright.create();
         browser = playwright.chromium().launch(
                 new BrowserType.LaunchOptions()
                         .setHeadless(false)
-                        .setSlowMo(2000)
+                        //.setSlowMo(2000)
+                        .setArgs(args)
         );
         context = browser.newContext(new Browser.NewContextOptions()
-                .setViewportSize(1920, 1080)
+                .setViewportSize(null)
         );
         page = context.newPage();
     }
-
 
 
     public Page getPage() {
