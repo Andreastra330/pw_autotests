@@ -26,3 +26,9 @@ java {
     }
 }
 
+allure {
+    adapter {
+        aspectjVersion.set("1.9.22")
+        aspectjWeaver.set(true)
+    }
+}
