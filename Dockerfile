@@ -4,4 +4,4 @@ WORKDIR /app
 
 RUN apt-get update && apt-get install -y xvfb && rm -rf /var/lib/apt/lists/*
 
-CMD ["/bin/sh","-c","chmod +x ./gradlew && xvfb-run -a ./gradlew --no-daemon clean test && chmod -R a+rX build/allure-results || true"]
+CMD ["/bin/sh","-c","xvfb-run -a sh ./gradlew --no-daemon clean test && chmod -R a+rX build/allure-results || true"]
