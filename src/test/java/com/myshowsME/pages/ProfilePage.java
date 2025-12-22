@@ -2,6 +2,7 @@ package com.myshowsME.pages;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import io.qameta.allure.Step;
 
 public class ProfilePage extends BasePage{
     private final Locator profileBtn = $("a.Sidebar__item div.Sidebar__item-text",
@@ -33,49 +34,56 @@ public class ProfilePage extends BasePage{
             new Page.LocatorOptions().setHasText("nuhan"));
 
     public ProfilePage(Page page) {super(page);}
-
+    @Step("Открытие страницы профиля")
     public ProfilePage openProfilePage(){
         profileBtn.click();
         profilePage.waitFor();
         return this;
     }
 
+    @Step("Проверяем что просмотренный сериал существует")
     public ProfilePage serialWatchExist(){
         serialWatch.click();
         serialWatchName.waitFor();
         return this;
     }
 
+    @Step("Проверяем что буду смотреть сериал существует")
     public ProfilePage serialWillExist(){
         serialWill.click();
         serialWillName.waitFor();
         return this;
     }
 
+    @Step("Проверяем что остановился смотреть сериал существует")
     public ProfilePage serialStopedExist(){
         serialStopped.click();
         serialStoppedName.waitFor();
         return this;
     }
 
+    @Step("Проверяем что закончил смотреть сериал существует")
     public ProfilePage serialLookedExist(){
         serialLooked.click();
         serialLookedName.waitFor();
         return this;
     }
 
+    @Step("Проверяем что закончил смотреть фильм существует")
     public ProfilePage filmLookedExist(){
         filmLooked.click();
         filmLookedName.waitFor();
         return this;
     }
 
+    @Step("Проверяем что буду смотреть фильм существует")
     public ProfilePage filmWillExist(){
         filmWill.click();
         filmWillName.waitFor();
         return this;
     }
 
+    @Step("Проверка что друг присутствует в профиле")
     public ProfilePage userFriendExist(){
         userFriend.waitFor();
         return this;

@@ -1,9 +1,13 @@
 package com.myshowsME.tests.MainPage;
 
 import com.myshowsME.core.BaseTest;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.Test;
 
+@Epic("Web UI")
+@Feature("Авторизация")
 public class LoginTests extends BaseTest {
     @Test
     @Story("Вход в аккаунт с помощью логина")

@@ -3,6 +3,7 @@ package com.myshowsME.pages;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.WaitForSelectorState;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 
 
@@ -30,22 +31,24 @@ public class RegisterPage extends BasePage{
 
     public RegisterPage(Page page){super(page);}
 
+    @Step("Открытие формы регистрации")
     public RegisterPage openRegisterForm(){
         registerBtn.click();
         registerForm.waitFor();
         return this;
     }
-
+    @Step("Нажатие кнопки чекбокса")
     public RegisterPage checkbox(){
         checkboxConfirm.click();
         return this;
     }
+    @Step("Нажатие кнопки Зарегистрироваться")
     public RegisterPage register(){
         makeRegisterBtn.click();
         return this;
     }
 
-
+    @Step("Заполнение формы регистрации")
     public RegisterPage fillRegisterForm(String login, String email, String password1, String password2)
     {
         usernameInput.fill(login);
@@ -55,48 +58,51 @@ public class RegisterPage extends BasePage{
         return this;
     }
 
+    @Step("Проверка что регистрация успешна")
     public RegisterPage registerSuccess(){
-        page.waitForTimeout(5000);
+        page.waitForTimeout(10000);
         Assertions.assertEquals("https://myshows.me/hi/",page.url());
         return this;
     }
 
+    @Step("Проверка что поле логин окрасилось красным при ошибке")
     public RegisterPage loginFieldError(){
         errorUsernameInput.waitFor();
         Assertions.assertTrue(errorUsernameInput.isVisible());
         return this;
     }
-
+    @Step("Проверка что поле email окрасилось красным при ошибке")
     public RegisterPage emailFieldError(){
         errorEmailInput.waitFor();
         Assertions.assertTrue(errorEmailInput.isVisible());
         return this;
     }
 
+    @Step("Проверка что поле пароль1 окрасилось красным при ошибке")
     public RegisterPage passwordFieldError(){
         errorPasswordInput.waitFor();
         Assertions.assertTrue(errorPasswordInput.isVisible());
         return this;
     }
-
+    @Step("Проверка что поле пароль2 окрасилось красным при ошибке")
     public RegisterPage password2FieldError(){
         errorPassword2Input.waitFor();
         Assertions.assertTrue(errorPassword2Input.isVisible());
         return this;
     }
-
+    @Step("Проверка что поле чекбокс окрасилось красным при ошибке")
     public RegisterPage checkboxFieldError(){
         errorCheckbox.waitFor();
         Assertions.assertTrue(errorCheckbox.isVisible());
         return this;
     }
-
+    @Step("Проверка налачие алерта при некорректном логине")
     public RegisterPage loginIncorrectAlert(){
         incorrectNameFormatError.waitFor();
         Assertions.assertTrue(incorrectNameFormatError.isVisible());
         return this;
     }
-
+    @Step("Проверка налачие алерта при ужа зарегистрированном логине")
     public RegisterPage loginAlreadyRegisterAlert(){
         Assertions.assertTrue(alreadyRegisterNameError.isVisible());
         return this;

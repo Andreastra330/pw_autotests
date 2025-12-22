@@ -3,9 +3,15 @@ package com.myshowsME.tests.MainPage;
 import com.myshowsME.Utils.CommonUtils;
 import com.myshowsME.core.BaseTest;
 import org.junit.jupiter.api.Test;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.Test;
 
+@Epic("Web UI")
+@Feature("Регистрация")
 public class RegisterTests extends BaseTest {
-
+    @Story("Регистрация с корректными данными")
     @Test
     public void registerWithCorrectData(){
         var login = CommonUtils.randomString(12).toLowerCase();
@@ -17,7 +23,7 @@ public class RegisterTests extends BaseTest {
                 .register()
                 .registerSuccess();
     }
-
+    @Story("Регистрация с пустым логином")
     @Test
     public void registerWithEmptyLogin(){
         var pass = CommonUtils.randomString(6);
@@ -28,7 +34,7 @@ public class RegisterTests extends BaseTest {
                 .register()
                 .loginFieldError();
     }
-
+    @Story("Регистрация с меньше 3 символов")
     @Test
     public void registerWithLoginLessThreeSymbl(){
         var pass = CommonUtils.randomString(6);
@@ -41,6 +47,7 @@ public class RegisterTests extends BaseTest {
                 .loginIncorrectAlert();
     }
 
+    @Story("Регистрация с логином где есть запрещенные символы")
     @Test
     public void registerWithLoginBadSymbl(){
         var pass = CommonUtils.randomString(6);
@@ -53,6 +60,7 @@ public class RegisterTests extends BaseTest {
                 .loginIncorrectAlert();
     }
 
+    @Story("Регистрация с логином который уже зарегистрирован")
     @Test
     public void registerWithAlreadyCreatedLogin(){
         var pass = CommonUtils.randomString(6);
@@ -65,6 +73,7 @@ public class RegisterTests extends BaseTest {
                 .loginAlreadyRegisterAlert();
     }
 
+    @Story("Регистрация с Китайским алфавитом")
     @Test
     public void registerWithChinaSymbLogin(){
         var pass = CommonUtils.randomString(6);
@@ -77,7 +86,7 @@ public class RegisterTests extends BaseTest {
                 .loginIncorrectAlert();
     }
 
-
+    @Story("Регистрация с пустым мейлом")
     @Test
     public void registerWithEmptyEmail(){
         var login = CommonUtils.randomString(5).toLowerCase();
@@ -90,6 +99,7 @@ public class RegisterTests extends BaseTest {
                 .emailFieldError();
     }
 
+    @Story("Регистрация с пустым паролем1")
     @Test
     public void registerWithEmptyPassword(){
         var login = CommonUtils.randomString(5).toLowerCase();
@@ -102,6 +112,7 @@ public class RegisterTests extends BaseTest {
                 .passwordFieldError();
     }
 
+    @Story("Регистрация с пустым паролем2")
     @Test
     public void registerWithEmptyPassword2(){
         var login = CommonUtils.randomString(5).toLowerCase();
@@ -114,6 +125,7 @@ public class RegisterTests extends BaseTest {
                 .password2FieldError();
     }
 
+    @Story("Регистрация с пустым чекбоксом")
     @Test
     public void registerWithEmptyCheckbox(){
         var login = CommonUtils.randomString(5).toLowerCase();
