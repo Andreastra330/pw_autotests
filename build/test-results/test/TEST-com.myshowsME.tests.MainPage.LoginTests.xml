@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.myshowsME.tests.MainPage.LoginTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-12-21T14:33:29" hostname="ANDREY" time="5.237">
+  <properties/>
+  <testcase name="enterAccountWithEmptyPassword()" classname="com.myshowsME.tests.MainPage.LoginTests" time="5.237"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
