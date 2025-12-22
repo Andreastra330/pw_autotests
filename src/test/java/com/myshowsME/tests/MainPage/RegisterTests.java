@@ -2,6 +2,8 @@ package com.myshowsME.tests.MainPage;
 
 import com.myshowsME.Utils.CommonUtils;
 import com.myshowsME.core.BaseTest;
+import io.qameta.allure.AllureId;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -11,8 +13,9 @@ import org.junit.jupiter.api.Test;
 @Epic("Web UI")
 @Feature("Регистрация")
 public class RegisterTests extends BaseTest {
-    @Story("Регистрация с корректными данными")
     @Test
+    @DisplayName("Регистрация с корректными данными")
+    @AllureId("67")
     public void registerWithCorrectData(){
         var login = CommonUtils.randomString(12).toLowerCase();
         var pass = CommonUtils.randomString(6);
@@ -23,8 +26,10 @@ public class RegisterTests extends BaseTest {
                 .register()
                 .registerSuccess();
     }
-    @Story("Регистрация с пустым логином")
+
     @Test
+    @DisplayName("Регистрация с пустым логином")
+    @AllureId("74")
     public void registerWithEmptyLogin(){
         var pass = CommonUtils.randomString(6);
         mainPage.open().openLoginModal();
@@ -34,8 +39,10 @@ public class RegisterTests extends BaseTest {
                 .register()
                 .loginFieldError();
     }
-    @Story("Регистрация с меньше 3 символов")
+
     @Test
+    @DisplayName("Регистрация с меньше 3 символов")
+    @AllureId("76")
     public void registerWithLoginLessThreeSymbl(){
         var pass = CommonUtils.randomString(6);
         mainPage.open().openLoginModal();
@@ -47,8 +54,9 @@ public class RegisterTests extends BaseTest {
                 .loginIncorrectAlert();
     }
 
-    @Story("Регистрация с логином где есть запрещенные символы")
     @Test
+    @DisplayName("Регистрация с логином где есть запрещенные символы")
+    @AllureId("75")
     public void registerWithLoginBadSymbl(){
         var pass = CommonUtils.randomString(6);
         mainPage.open().openLoginModal();
@@ -60,8 +68,9 @@ public class RegisterTests extends BaseTest {
                 .loginIncorrectAlert();
     }
 
-    @Story("Регистрация с логином который уже зарегистрирован")
     @Test
+    @DisplayName("Регистрация с логином который уже зарегистрирован")
+    @AllureId("77")
     public void registerWithAlreadyCreatedLogin(){
         var pass = CommonUtils.randomString(6);
         mainPage.open().openLoginModal();
@@ -73,8 +82,9 @@ public class RegisterTests extends BaseTest {
                 .loginAlreadyRegisterAlert();
     }
 
-    @Story("Регистрация с Китайским алфавитом")
     @Test
+    @DisplayName("Регистрация с Китайским алфавитом")
+    @AllureId("66")
     public void registerWithChinaSymbLogin(){
         var pass = CommonUtils.randomString(6);
         mainPage.open().openLoginModal();
@@ -86,8 +96,9 @@ public class RegisterTests extends BaseTest {
                 .loginIncorrectAlert();
     }
 
-    @Story("Регистрация с пустым мейлом")
     @Test
+    @DisplayName("Регистрация с пустым мейлом")
+    @AllureId("72")
     public void registerWithEmptyEmail(){
         var login = CommonUtils.randomString(5).toLowerCase();
         var pass = CommonUtils.randomString(6);
@@ -99,8 +110,9 @@ public class RegisterTests extends BaseTest {
                 .emailFieldError();
     }
 
-    @Story("Регистрация с пустым паролем1")
     @Test
+    @DisplayName("Регистрация с пустым паролем1")
+    @AllureId("84")
     public void registerWithEmptyPassword(){
         var login = CommonUtils.randomString(5).toLowerCase();
         var pass = CommonUtils.randomString(6);
@@ -112,8 +124,9 @@ public class RegisterTests extends BaseTest {
                 .passwordFieldError();
     }
 
-    @Story("Регистрация с пустым паролем2")
     @Test
+    @DisplayName("Регистрация с пустым паролем2")
+    @AllureId("71")
     public void registerWithEmptyPassword2(){
         var login = CommonUtils.randomString(5).toLowerCase();
         var pass = CommonUtils.randomString(6);
@@ -125,8 +138,9 @@ public class RegisterTests extends BaseTest {
                 .password2FieldError();
     }
 
-    @Story("Регистрация с пустым чекбоксом")
     @Test
+    @DisplayName("Регистрация с пустым чекбоксом")
+    @AllureId("73")
     public void registerWithEmptyCheckbox(){
         var login = CommonUtils.randomString(5).toLowerCase();
         var pass = CommonUtils.randomString(6);

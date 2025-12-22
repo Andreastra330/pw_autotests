@@ -1,58 +1,64 @@
 package com.myshowsME.tests.MainPage;
 
 import com.myshowsME.core.BaseTest;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 @Epic("Web UI")
 @Feature("Авторизация")
 public class LoginTests extends BaseTest {
     @Test
-    @Story("Вход в аккаунт с помощью логина")
+    @DisplayName("Вход в аккаунт с помощью логина")
+    @AllureId("78")
     public void enterAccountWithLogin(){
         mainPage.open().openLoginModal();
         loginPage.enterAccountWithLogin();
     }
 
     @Test
-    @Story("Вход в аккаунт с помощью мейла")
+    @DisplayName("Вход в аккаунт с помощью мейла")
+    @AllureId("80")
     public void enterAccountWithEmail(){
         mainPage.open().openLoginModal();
         loginPage.enterAccountWithEmail();
     }
 
     @Test
-    @Story("Попытка входа в аккаунт с помощью пустого логина")
+    @DisplayName("Попытка входа в аккаунт с помощью пустого логина")
+    @AllureId("70")
     public void  enterAccountWithEmptyLogin(){
         mainPage.open().openLoginModal();
         loginPage.enterWithEmptyLoginInput();
     }
 
     @Test
-    @Story("Попытка входа в аккаунт с помощью пустого пароля")
+    @DisplayName("Попытка входа в аккаунт с помощью пустого пароля")
+    @AllureId("68")
     public void  enterAccountWithEmptyPassword(){
         mainPage.open().openLoginModal();
         loginPage.enterWithEmptyPasswordInput();
     }
 
     @Test
-    @Story("Попытка входа в аккаунт с помощью некорректного логина")
+    @DisplayName("Попытка входа в аккаунт с помощью некорректного логина")
+    @AllureId("79")
     public void enterWithIncorrectLogin(){
         mainPage.open().openLoginModal();
         loginPage.enterWithIncorrectLogin();
     }
 
     @Test
-    @Story("Попытка входа в аккаунт с помощью некорректного мейла")
+    @DisplayName("Попытка входа в аккаунт с помощью некорректного мейла")
+    @AllureId("85")
     public void enterWithIncorrectEmail(){
         mainPage.open().openLoginModal();
         loginPage.enterWithIncorrectEmail();
     }
 
     @Test
-    @Story("Попытка входа в аккаунт с помощью некорректного пароля")
+    @DisplayName("Попытка входа в аккаунт с помощью некорректного пароля")
+    @AllureId("81")
     public void enterWithIncorrectPassword(){
         mainPage.open().openLoginModal();
         loginPage.enterWithIncorrectPassword();

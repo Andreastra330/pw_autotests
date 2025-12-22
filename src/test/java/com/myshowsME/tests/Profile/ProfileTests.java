@@ -1,26 +1,28 @@
 package com.myshowsME.tests.Profile;
 
 import com.myshowsME.core.BaseTest;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
 import org.junit.jupiter.api.Test;
 
 @Epic("Web UI")
+
 @Feature("Действия в профиле")
 public class ProfileTests extends BaseTest {
 
-    @Story("Открытие страницы профиля")
     @Test
+    @DisplayName("Открытие страницы профиля")
+    @AllureId("65")
     public void openProfilePage(){
         mainPage.open().openLoginModal();
         loginPage.enterAccountWithLogin();
         profilePage.openProfilePage();
     }
 
-    @Story("Проверка наличия сериалов в блоке сериалы")
     @Test
+    @DisplayName("Проверка наличия сериалов в блоке сериалы")
+    @AllureId("82")
     public void itemsExistInSerialBlocks(){
         mainPage.open().openLoginModal();
         loginPage.enterAccountWithLogin();
@@ -31,9 +33,9 @@ public class ProfileTests extends BaseTest {
                 .serialLookedExist();
     }
 
-
-    @Story("Проверка наличия фильмов в блоке фильмы")
     @Test
+    @DisplayName("Проверка наличия фильмов в блоке фильмы")
+    @AllureId("69")
     public void itemsExistInFilmBlocks(){
         mainPage.open().openLoginModal();
         loginPage.enterAccountWithLogin();
@@ -42,9 +44,9 @@ public class ProfileTests extends BaseTest {
                 .filmLookedExist();
     }
 
-
-    @Story("Проверка наличия друзей в блоке друзья")
     @Test
+    @DisplayName("Проверка наличия друзей в блоке друзья")
+    @AllureId("83")
     public void userFriendExist(){
         mainPage.open().openLoginModal();
         loginPage.enterAccountWithLogin();
